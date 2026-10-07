@@ -37,9 +37,29 @@
   if (!grid) return;
   var state = { cat: "all", q: "" };
 
+  function nameText(item) {
+    return String(item.name || "").toLowerCase();
+  }
+
+  function inCat(item, cat) {
+    if (cat === "all") return true;
+    if (cat === "print" || cat === "digital" || cat === "electronics" || cat === "walkie") {
+      return item.category === cat;
+    }
+    var name = nameText(item);
+    if (cat === "thumb") return /\bthumb\b/.test(name);
+    if (cat === "phone") return /(\bphone\b|touchphone)/.test(name) && name.indexOf("magnifier") === -1;
+    if (cat === "unicorn") return name.indexOf("unicorn") !== -1;
+    if (cat === "dinosaur") return /dinosaur|\bdino\b/.test(name);
+    if (cat === "character") {
+      return /unicorn|dinosaur|\bdino\b|panda|\bbear\b|kitty|kuromi|rabbit|\btiger\b|dragon|cartoon|\brobot\b/.test(name);
+    }
+    return false;
+  }
+
   function render() {
     var list = products.filter(function (item) {
-      var catOk = state.cat === "all" || item.category === state.cat;
+      var catOk = inCat(item, state.cat);
       var q = state.q;
       var title = window.BTJ_productTitle ? window.BTJ_productTitle(item) : item.name;
       var text = (item.name + " " + item.slug + " " + title).toLowerCase();
