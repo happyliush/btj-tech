@@ -419,9 +419,11 @@ textarea { min-height: 120px; resize: vertical; }
 .blog-card .body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .blog-card time { color: var(--muted); font-size: 12px; }
 .blog-card h3 { font-size: 18px; margin: 0; line-height: 1.35; }
+.blog-card h3 a, .blog-card > a { text-decoration: none; }
 .blog-card p { color: var(--muted); margin: 0; }
 .blog-card .more { margin-top: auto; color: var(--accent); font-weight: 700; text-decoration: none; }
 .post { max-width: 760px; }
+.post img { width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; margin: 8px 0 18px; }
 .post h2 { font-size: 32px; margin-bottom: 8px; }
 .post .meta { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
 .post p { color: #4b5563; }
