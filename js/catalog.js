@@ -10,7 +10,6 @@
   function card(item) {
     var price = item.price || "Ask";
     var detail = "product.html?slug=" + encodeURIComponent(item.slug);
-    var inquire = "contact.html?model=" + encodeURIComponent(item.name);
     var image = item.image
       ? '<a class="shot" href="' + detail + '"><img src="' + esc(item.image) + '" alt="' + esc(item.name) + '"></a>'
       : "";
@@ -18,7 +17,7 @@
       '<article class="pcard">' + image +
       '<h3><a href="' + detail + '">' + esc(item.name) + "</a></h3>" +
       '<p class="pmeta">' + esc(price) + " · from 10 pcs</p>" +
-      '<a class="btn" href="' + inquire + '">Inquire</a></article>'
+      '<a class="btn" href="' + detail + '">View more</a></article>'
     );
   }
 
