@@ -43,7 +43,7 @@
 
   function inCat(item, cat) {
     if (cat === "all") return true;
-    if (cat === "print" || cat === "digital" || cat === "electronics" || cat === "walkie") {
+    if (cat === "print" || cat === "digital") {
       return item.category === cat;
     }
     var name = nameText(item);
