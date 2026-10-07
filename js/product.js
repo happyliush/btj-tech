@@ -16,18 +16,20 @@
     return;
   }
 
-  document.title = item.name + " · Bateja";
+  var title = window.BTJ_productTitle ? window.BTJ_productTitle(item) : item.name;
+  var sku = window.BTJ_modelCode ? window.BTJ_modelCode(item) : item.name;
+  document.title = title + " · Bateja";
   var specs = (item.specs || []).map(function (row) {
     return "<tr><th>" + esc(row.label) + "</th><td>" + esc(row.value) + "</td></tr>";
   }).join("");
   root.innerHTML =
     '<article class="detail">' +
       '<div class="gallery">' +
-        (item.image ? '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '">' : "") +
+        (item.image ? '<img src="' + esc(item.image) + '" alt="' + esc(title) + '">' : "") +
       "</div>" +
       "<div class=\"buy\">" +
-        '<p class="sku">SKU ' + esc(item.name) + "</p>" +
-        "<h1>" + esc(item.name) + "</h1>" +
+        '<p class="sku">SKU ' + esc(sku) + "</p>" +
+        "<h1>" + esc(title) + "</h1>" +
         '<p class="price">' + esc(item.price || "Ask") + "</p>" +
         '<p class="moq">MOQ 10 pcs · USD list price</p>' +
         '<form class="qty-row" id="inquire-form">' +
@@ -42,6 +44,6 @@
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     var qty = form.querySelector("[name=qty]").value || "10";
-    location.href = "contact.html?model=" + encodeURIComponent(item.name) + "&qty=" + encodeURIComponent(qty);
+    location.href = "contact.html?model=" + encodeURIComponent(title) + "&qty=" + encodeURIComponent(qty);
   });
 })();

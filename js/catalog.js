@@ -9,13 +9,14 @@
 
   function card(item) {
     var price = item.price || "Ask";
+    var title = window.BTJ_productTitle ? window.BTJ_productTitle(item) : item.name;
     var detail = "product.html?slug=" + encodeURIComponent(item.slug);
     var image = item.image
-      ? '<a class="shot" href="' + detail + '"><img src="' + esc(item.image) + '" alt="' + esc(item.name) + '"></a>'
+      ? '<a class="shot" href="' + detail + '"><img src="' + esc(item.image) + '" alt="' + esc(title) + '"></a>'
       : "";
     return (
       '<article class="pcard">' + image +
-      '<h3><a href="' + detail + '">' + esc(item.name) + "</a></h3>" +
+      '<h3><a href="' + detail + '">' + esc(title) + "</a></h3>" +
       '<p class="pmeta">' + esc(price) + " · from 10 pcs</p>" +
       '<a class="btn" href="' + detail + '">View more</a></article>'
     );
@@ -40,7 +41,8 @@
     var list = products.filter(function (item) {
       var catOk = state.cat === "all" || item.category === state.cat;
       var q = state.q;
-      var text = (item.name + " " + item.slug).toLowerCase();
+      var title = window.BTJ_productTitle ? window.BTJ_productTitle(item) : item.name;
+      var text = (item.name + " " + item.slug + " " + title).toLowerCase();
       return catOk && (!q || text.indexOf(q) !== -1);
     });
     grid.innerHTML = list.map(card).join("") || "<p>No models match.</p>";
