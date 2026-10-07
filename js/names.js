@@ -11,19 +11,39 @@
     var out = [];
     var tokens = String(name || "").trim().split(/\s+/);
     for (var i = 0; i < tokens.length && out.length < 2; i++) {
-      var token = tokens[i].replace(/[,/;]+$/g, "");
+      var token = tokens[i].replace(/[,/;：:]+$/g, "");
       if (!token) continue;
-      if (/^[A-Za-z]*\d[\w.+\-]*$/.test(token)) {
+      if (!out.length && /^[A-Za-z][A-Za-z]*\d[\w.+\-]*$/.test(token)) {
         out.push(token);
         continue;
       }
-      if (out.length && /^[A-Z]$/.test(token)) {
+      if (out.length === 1 && /^[A-Z]$/.test(token)) {
         out.push(token);
         continue;
       }
       break;
     }
     return out.join(" ");
+  }
+
+  function collapseRepeats(text) {
+    var words = String(text || "").trim().split(/\s+/);
+    var changed = true;
+    while (changed) {
+      changed = false;
+      for (var len = 3; len >= 1 && !changed; len--) {
+        for (var i = 0; i + len * 2 <= words.length; i++) {
+          var left = words.slice(i, i + len).join(" ").toLowerCase();
+          var right = words.slice(i + len, i + len * 2).join(" ").toLowerCase();
+          if (left === right) {
+            words.splice(i + len, len);
+            changed = true;
+            break;
+          }
+        }
+      }
+    }
+    return words.join(" ");
   }
 
   function themeOf(name) {
@@ -58,7 +78,8 @@
   function featuresOf(blob) {
     var low = blob.toLowerCase();
     var list = [];
-    if (/4k/.test(low)) list.push("4K Video");
+    if (/(^|[^a-z0-9])5k([^a-z0-9]|$)/.test(low)) list.push("5K Video");
+    else if (/4k/.test(low)) list.push("4K Video");
     else if (/2\.7\s*k/.test(low)) list.push("2.7K Video");
     else if (/2\.5\s*k/.test(low)) list.push("2.5K Video");
     else if (/1080\s*p/.test(low)) list.push("1080P Video");
@@ -89,20 +110,28 @@
     var theme = themeOf(item.name);
     var type = productType(item, blob);
     var parts = [];
+    var named = false;
     if (model) parts.push(model);
-    else if (item.name && type.toLowerCase().indexOf(String(item.name).trim().toLowerCase()) === -1) {
-      parts.push(String(item.name).trim());
+    else if (item.name) {
+      parts.push(collapseRepeats(item.name));
+      named = true;
     }
     if (theme && parts.join(" ").toLowerCase().indexOf(theme.toLowerCase()) === -1) parts.push(theme);
-    parts.push(type);
+    var lead = parts.join(" ");
+    if (!(named && /camera|printer|walkie|magnifier|microscope/i.test(lead))) parts.push(type);
+    var modelKey = model.toLowerCase().replace(/[^a-z0-9]/g, "");
     featuresOf(blob).forEach(function (feature) {
-      if (parts.join(" ").toLowerCase().indexOf(feature.toLowerCase()) === -1) parts.push(feature);
+      var featureKey = feature.toLowerCase();
+      if (parts.join(" ").toLowerCase().indexOf(featureKey) !== -1) return;
+      if (modelKey && /dual/.test(featureKey) && modelKey.indexOf("dual") !== -1) return;
+      if (modelKey && /5k/.test(featureKey) && modelKey.indexOf("5k") !== -1) return;
+      parts.push(feature);
     });
     return parts.join(" ");
   }
 
   window.BTJ_modelCode = function (item) {
-    return modelOf(item && item.name) || (item && item.name) || "";
+    return modelOf(item && item.name) || collapseRepeats(item && item.name) || "";
   };
   window.BTJ_productTitle = productTitle;
 })();
