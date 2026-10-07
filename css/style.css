@@ -71,6 +71,21 @@ button, input, textarea { font: inherit; }
   padding: 8px 14px;
 }
 
+.fact-strip {
+  background: #172033;
+  color: #fff;
+  font-size: 13px;
+}
+.fact-strip .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 11px 0;
+}
+.fact-strip span { color: rgba(255, 255, 255, 0.92); }
+.fact-strip strong { color: #fff; font-weight: 700; }
 .banners {
   position: relative;
   overflow: hidden;
