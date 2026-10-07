@@ -16,7 +16,7 @@
     return;
   }
 
-  document.title = item.name + " · Baitejia";
+  document.title = item.name + " · Bateja";
   var specs = (item.specs || []).map(function (row) {
     return "<tr><th>" + esc(row.label) + "</th><td>" + esc(row.value) + "</td></tr>";
   }).join("");
