@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products · Baitejia</title>
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body data-page="products">
+  <div id="site-header"></div>
+  <main>
+    <section class="page-banner">
+      <div class="mosaic" aria-hidden="true">
+        <img src="https://baitejia.pythonanywhere.com/media/products/11_UosLB7L.jpg" alt="" />
+        <img src="https://baitejia.pythonanywhere.com/media/products/A19_zftIG21.jpg" alt="" />
+        <img src="https://baitejia.pythonanywhere.com/media/products/A10L_IeKKaBQ.jpg" alt="" />
+        <img src="https://baitejia.pythonanywhere.com/media/products/WD08_0yUQb1K.jpg" alt="" />
+      </div>
+      <div class="banner-copy">
+        <h1>PRODUCT</h1>
+        <p class="lead">Discover the next generation of BTJ camera technology.</p>
+      </div>
+    </section>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="filters">
+          <button type="button" data-cat="all" class="on">All</button>
+          <button type="button" data-cat="print">Instant print</button>
+          <button type="button" data-cat="digital">Kids digital</button>
+          <button type="button" data-cat="electronics">Electronics</button>
+          <button type="button" data-cat="walkie">Walkie talkies</button>
+          <input id="product-search" type="search" placeholder="Search model" />
+          <span id="product-count" class="note"></span>
+        </div>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap">
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/main.js?v=6"></script>
+  <script src="assets/products.js"></script>
+  <script src="js/catalog.js?v=2"></script>
+</body>
+</html>

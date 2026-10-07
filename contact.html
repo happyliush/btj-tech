@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact · Baitejia</title>
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body data-page="contact">
+  <div id="site-header"></div>
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker">Contact</p>
+        <h1>Tell us the product and the quantity.</h1>
+        <p class="lead">Sample details are confirmed by our team. Small batches start at 10 pieces.</p>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="wrap grid-2">
+        <form id="contact-form">
+          <label>Name<input name="name" required /></label>
+          <label>What you need<textarea name="message" placeholder="Product type, brand details, sample or 10-piece run"></textarea></label>
+          <button class="btn" type="submit">Send on WhatsApp</button>
+        </form>
+        <div>
+          <h3>Shenzhen Baitejia Technology Co., Ltd.</h3>
+          <p>深圳市百特佳科技有限公司<br>Dahong High tech Park, Bao’an District, Shenzhen, Guangdong Province, China</p>
+          <p>E-mail: <a href="mailto:sales@btj-tech.com">sales@btj-tech.com</a><br>WhatsApp: <a href="https://wa.me/8618923897186">+86 189 2389 7186</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/main.js?v=6"></script>
+  <script>
+    var params = new URLSearchParams(location.search);
+    var model = params.get("model");
+    var qty = params.get("qty") || "";
+    var box = document.querySelector("textarea[name=message]");
+    if (model && box && !box.value) box.value = "Model: " + model + "\nQuantity: " + qty + "\nCustom details: ";
+    var form = document.getElementById("contact-form");
+    if (form) {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var data = new FormData(form);
+        var text = "Name: " + (data.get("name") || "") + "\n" + (data.get("message") || "");
+        location.href = "https://wa.me/8618923897186?text=" + encodeURIComponent(text);
+      });
+    }
+  </script>
+</body>
+</html>
