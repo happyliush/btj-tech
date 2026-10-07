@@ -414,7 +414,21 @@ textarea { min-height: 120px; resize: vertical; }
   .banner-copy { margin: 0 auto; }
   .banner .lead { margin-left: auto; margin-right: auto; }
   .banner img { max-height: none; }
-  .grid-3, .grid-4, .steps, .footer-grid, .grid-2, .band, .product-grid, .story, .why-grid, .portfolio-grid, .detail { grid-template-columns: 1fr; }
+  .grid-3, .grid-4, .steps, .footer-grid, .grid-2, .band, .story, .why-grid, .portfolio-grid, .detail { grid-template-columns: 1fr; }
+  .product-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  .product-grid > .pcard {
+    flex: 0 0 78%;
+    max-width: 280px;
+    scroll-snap-align: start;
+  }
   .page-banner { min-height: 360px; padding: 48px 24px; }
   .page-banner, .page-banner-right { justify-content: center; text-align: center; }
   .page-banner-right .banner-copy, .page-banner .banner-copy { text-align: center; margin: 0 auto; }
