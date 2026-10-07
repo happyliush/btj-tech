@@ -20,13 +20,13 @@
   header.innerHTML =
     '<header class="nav"><div class="nav-inner">' +
     '<a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="" />' +
-    "<div><strong>BATEJA</strong><span>深圳市百特佳科技有限公司</span></div></a>" +
+    "<div><strong>BATEJA</strong><span>Children's Camera</span></div></a>" +
     '<button class="menu-toggle" type="button" aria-expanded="false">Menu</button>' +
     '<nav class="menu">' + menu + '</nav></div></header>';
 
   footer.innerHTML =
     '<footer><div class="footer-inner"><div class="footer-grid">' +
-    "<div><strong>深圳市百特佳科技有限公司</strong><p class=\"muted\">Shenzhen Bateja Technology Co., Ltd.<br>Dahong High tech Park, Bao’an District, Shenzhen, Guangdong Province, China</p></div>" +
+    "<div><strong>Shenzhen Bateja Technology Co., Ltd.</strong><p class=\"muted\">Dahong High tech Park, Bao’an District, Shenzhen, Guangdong Province, China</p></div>" +
     "<div><strong>Visit</strong><p><a href=\"custom.html\">OEM/ODM</a><br><a href=\"products.html\">Products</a><br><a href=\"about.html\">About us</a></p></div>" +
     "<div><strong>Contact</strong><p>E-mail: <a href=\"mailto:sales@bateja.com\">sales@bateja.com</a><br>WhatsApp: <a href=\"https://wa.me/8618923897186\" target=\"_blank\" rel=\"noopener\">+86 189 2389 7186</a></p></div>" +
     "</div><p class=\"legal\">Your brand. Our factory. From sample to small batch.</p></div></footer>" +
