@@ -235,6 +235,7 @@ h3 { margin: 0 0 8px; font-size: 18px; }
   border-top: 1px solid #f0f0f0;
 }
 .band h3 { font-size: 26px; margin-bottom: 8px; }
+.band h3 a { text-decoration: none; }
 .band p { margin: 0; color: var(--muted); }
 
 .slot {

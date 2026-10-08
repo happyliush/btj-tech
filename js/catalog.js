@@ -36,6 +36,8 @@
   var grid = document.getElementById("product-grid");
   if (!grid) return;
   var state = { cat: "all", q: "" };
+  var initial = new URLSearchParams(location.search).get("cat");
+  if (initial && document.querySelector('[data-cat="' + initial + '"]')) state.cat = initial;
 
   function nameText(item) {
     return String(item.name || "").toLowerCase();
@@ -71,6 +73,7 @@
   }
 
   document.querySelectorAll("[data-cat]").forEach(function (button) {
+    button.classList.toggle("on", button.getAttribute("data-cat") === state.cat);
     button.addEventListener("click", function () {
       state.cat = button.getAttribute("data-cat");
       document.querySelectorAll("[data-cat]").forEach(function (item) {
