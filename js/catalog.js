@@ -10,7 +10,7 @@
   function card(item) {
     var price = item.price || "Ask";
     var title = window.BTJ_productTitle ? window.BTJ_productTitle(item) : item.name;
-    var detail = "product.html?slug=" + encodeURIComponent(item.slug);
+    var detail = "product/" + encodeURIComponent(item.slug) + ".html";
     var image = item.image
       ? '<a class="shot" href="' + detail + '"><img src="' + esc(item.image) + '" alt="' + esc(title) + '"></a>'
       : "";
