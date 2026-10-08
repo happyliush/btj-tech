@@ -25,9 +25,13 @@
     '<button class="menu-toggle" type="button" aria-expanded="false">Menu</button>' +
     '<nav class="menu">' + menu + '</nav></div></header>';
 
+  var company = page === "about" || page === "contact"
+    ? "Shenzhen Baitejia Technology Co., Ltd."
+    : "Shenzhen Bateja Technology Co., Ltd.";
+
   footer.innerHTML =
     '<footer><div class="footer-inner"><div class="footer-grid">' +
-    "<div><strong>Shenzhen Bateja Technology Co., Ltd.</strong><p class=\"muted\">Dahong High tech Park, Bao’an District, Shenzhen, Guangdong Province, China</p></div>" +
+    "<div><strong>" + company + "</strong><p class=\"muted\">Dahong High tech Park, Bao’an District, Shenzhen, Guangdong Province, China</p></div>" +
     "<div><strong>Visit</strong><p><a href=\"custom.html\">OEM/ODM</a><br><a href=\"products.html\">Products</a><br><a href=\"blog.html\">Blog</a><br><a href=\"about.html\">About us</a></p></div>" +
     "<div><strong>Contact</strong><p>E-mail: <a href=\"mailto:sales@bateja.com\">sales@bateja.com</a><br>WhatsApp: <a href=\"https://wa.me/8618923897186\" target=\"_blank\" rel=\"noopener\">+86 189 2389 7186</a></p></div>" +
     "</div><p class=\"legal\">Your brand. Our factory. From sample to small batch.</p></div></footer>" +
