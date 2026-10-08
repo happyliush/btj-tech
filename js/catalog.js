@@ -22,23 +22,6 @@
     );
   }
 
-  var home = document.getElementById("home-products");
-  if (home) {
-    var picked = [];
-    ["print", "digital"].forEach(function (cat) {
-      products.filter(function (item) { return item.category === cat && item.image; })
-        .slice(0, 4)
-        .forEach(function (item) { picked.push(item); });
-    });
-    home.innerHTML = picked.map(card).join("");
-  }
-
-  var grid = document.getElementById("product-grid");
-  if (!grid) return;
-  var state = { cat: "all", q: "" };
-  var initial = new URLSearchParams(location.search).get("cat");
-  if (initial && document.querySelector('[data-cat="' + initial + '"]')) state.cat = initial;
-
   function nameText(item) {
     return String(item.name || "").toLowerCase();
   }
@@ -58,6 +41,32 @@
     }
     return false;
   }
+
+  var home = document.getElementById("home-products");
+  if (home) {
+    var groups = [
+      ["print", "Instant print"],
+      ["phone", "Smartphone-shaped"],
+      ["unicorn", "Unicorn-themed"],
+      ["dinosaur", "Dinosaur-themed"]
+    ];
+    home.innerHTML = groups.map(function (group) {
+      var list = products.filter(function (item) {
+        return item.image && inCat(item, group[0]);
+      }).slice(0, 4);
+      return (
+        '<div class="home-type">' +
+        '<h3><a href="products.html?cat=' + group[0] + '">' + group[1] + "</a></h3>" +
+        '<div class="product-grid">' + list.map(card).join("") + "</div></div>"
+      );
+    }).join("");
+  }
+
+  var grid = document.getElementById("product-grid");
+  if (!grid) return;
+  var state = { cat: "all", q: "" };
+  var initial = new URLSearchParams(location.search).get("cat");
+  if (initial && document.querySelector('[data-cat="' + initial + '"]')) state.cat = initial;
 
   function render() {
     var list = products.filter(function (item) {

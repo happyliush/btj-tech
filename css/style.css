@@ -277,6 +277,9 @@ footer .muted, .legal { color: #bdbdbd; }
 .contacts-inline a { text-decoration: none; }
 
 .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.home-type { margin-top: 28px; }
+.home-type h3 { margin: 0 0 14px; font-size: 22px; }
+.home-type h3 a { text-decoration: none; }
 .pcard {
   background: #fff;
   border: 1px solid #f0f0f0;
