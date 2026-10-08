@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bateja — Custom kids cameras, from 10 pieces</title>
-  <link rel="stylesheet" href="css/style.css?v=12" />
+  <link rel="stylesheet" href="css/style.css?v=16" />
   <link rel="icon" href="assets/logo-mark.svg" />
 </head>
 <body data-page="home">
@@ -90,6 +90,80 @@
             <h3>Small batch from 10</h3>
             <p>Ten pieces is the batch size on a current model. If you only need 10, that is what we produce.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="departments">
+      <div class="wrap">
+        <div class="dept-tabs" role="tablist" aria-label="Factory departments">
+          <button type="button" role="tab" class="on" id="tab-sales" aria-selected="true" aria-controls="dept-sales">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5 19.2c1.4-3 3.6-4.5 7-4.5s5.6 1.5 7 4.5"/></svg>
+            <span>Sales Department</span>
+          </button>
+          <button type="button" role="tab" id="tab-supply" aria-selected="false" aria-controls="dept-supply">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/><path d="M3 4h2l2.2 10.2a1.5 1.5 0 0 0 1.5 1.2H17a1.5 1.5 0 0 0 1.5-1.2L20 8H7"/></svg>
+            <span>Supply Chain</span>
+          </button>
+          <button type="button" role="tab" id="tab-production" aria-selected="false" aria-controls="dept-production">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18"/></svg>
+            <span>Production Department</span>
+          </button>
+          <button type="button" role="tab" id="tab-quality" aria-selected="false" aria-controls="dept-quality">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8 12.2 2.6 2.6L16.2 9"/></svg>
+            <span>Quality Department</span>
+          </button>
+          <button type="button" role="tab" id="tab-rd" aria-selected="false" aria-controls="dept-rd">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20h4l10.2-10.2a2.2 2.2 0 0 0-3.1-3.1L4.9 16.9 4 20Z"/><path d="m13.2 8.6 2.2 2.2"/></svg>
+            <span>R&amp;D Center</span>
+          </button>
+          <button type="button" role="tab" id="tab-warehouse" aria-selected="false" aria-controls="dept-warehouse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 10.5 9-6.5 9 6.5"/><path d="M5 9.8V20h14V9.8"/><path d="M10 20v-6h4v6"/></svg>
+            <span>Warehouse</span>
+          </button>
+        </div>
+        <div class="dept-panel on" id="dept-sales" role="tabpanel" aria-labelledby="tab-sales">
+          <div>
+            <h2>Orders from 10 pieces</h2>
+            <p>Tell us the model and what the brand needs to change. A current model can be ordered from 10 pieces. Ten pieces is a real order. Sample cost, freight, and lead time are confirmed with sales. We ship to Europe, the United States, Japan, and Korea.</p>
+            <a class="btn" href="contact.html">Contact sales</a>
+          </div>
+          <img src="assets/factory/sampling.png" alt="A sample camera being assembled" />
+        </div>
+        <div class="dept-panel" id="dept-supply" role="tabpanel" aria-labelledby="tab-supply" hidden>
+          <div>
+            <h2>Parts for the order</h2>
+            <p>Housings, screens, and boards are prepared for the model you order. Packaging and the manual language are set for your market.</p>
+          </div>
+          <img src="assets/factory/assembly.png" alt="Camera boards, screens, and housings on the assembly bench" />
+        </div>
+        <div class="dept-panel" id="dept-production" role="tabpanel" aria-labelledby="tab-production" hidden>
+          <div>
+            <h2>Made in Bao’an</h2>
+            <p>Kids cameras and instant-print cameras are designed and produced at Dahong High tech Park. 200+ people work on 5,000 ㎡. Custom production is the main path.</p>
+          </div>
+          <img src="assets/factory/workshop.png" alt="Assembly line at the Bao’an factory" />
+        </div>
+        <div class="dept-panel" id="dept-quality" role="tabpanel" aria-labelledby="tab-quality" hidden>
+          <div>
+            <h2>ISO 9001:2015</h2>
+            <p>Quality management is ISO 9001:2015. The stated defect rate is 0.4%. Cameras are checked before they leave the factory.</p>
+          </div>
+          <img src="assets/factory/inspection.png" alt="Work on camera parts at the factory" />
+        </div>
+        <div class="dept-panel" id="dept-rd" role="tabpanel" aria-labelledby="tab-rd" hidden>
+          <div>
+            <h2>Samples and new tooling</h2>
+            <p>Logo, color, packaging, startup screen, and UI can change on a current model. A new shape is a new mold. We quote the tooling first, and you pay that cost before we open it. You approve a sample before production.</p>
+          </div>
+          <img src="assets/factory/sampling.png" alt="A sample camera on the workbench" />
+        </div>
+        <div class="dept-panel" id="dept-warehouse" role="tabpanel" aria-labelledby="tab-warehouse" hidden>
+          <div>
+            <h2>Packed before shipment</h2>
+            <p>Finished cameras are packed at the Bao’an factory, then checked and shipped. Freight and lead time are confirmed with sales. They are not listed on this site.</p>
+          </div>
+          <img src="assets/factory/workshop.png" alt="Packed cameras in cartons on the factory floor" />
         </div>
       </div>
     </section>
@@ -191,6 +265,25 @@
       root.addEventListener("mouseleave", start);
       show(0);
       start();
+    })();
+    (function () {
+      var tabs = document.querySelectorAll(".dept-tabs [role=tab]");
+      var panels = document.querySelectorAll(".dept-panel");
+      if (!tabs.length) return;
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          tabs.forEach(function (item) {
+            var on = item === tab;
+            item.classList.toggle("on", on);
+            item.setAttribute("aria-selected", on ? "true" : "false");
+          });
+          panels.forEach(function (panel) {
+            var on = panel.id === tab.getAttribute("aria-controls");
+            panel.classList.toggle("on", on);
+            panel.hidden = !on;
+          });
+        });
+      });
     })();
   </script>
 </body>
